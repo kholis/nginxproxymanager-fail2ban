@@ -14,14 +14,14 @@ Fail2ban filters and jails to protect your Nginx Proxy Manager installation from
 ## Quick Start
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/kholis/nginxproxymanager-fail2ban.git
 cd nginxproxymanager-fail2ban
 sudo ./install.sh
 ```
 
 For custom NPM data directory:
 ```bash
-NPM_DATA_DIR=/your/path ./install.sh
+NPM_DATA_DIR=/your/NPM/data/path ./install.sh
 # or
 cp .env.example .env && nano .env  # Edit NPM_DATA_DIR
 sudo ./install.sh
