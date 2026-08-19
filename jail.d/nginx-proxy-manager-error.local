@@ -1,0 +1,17 @@
+# Fail2ban jail for Nginx Proxy Manager - Error Logs
+# Protects against attempts to access sensitive files, RCE attacks, etc.
+
+[nginx-proxy-manager-error]
+enabled = true
+filter = nginx-proxy-manager-error
+logpath = {{NPM_DATA_DIR}}/logs/*_error.log
+         {{NPM_DATA_DIR}}/logs/fallback_error.log
+maxretry = 3
+findtime = 10m
+bantime = 2h
+port = http,https
+protocol = tcp
+
+# Optional: Use separate ban action (change as needed)
+# action = %(action_)s
+          # %(action_mwl)s

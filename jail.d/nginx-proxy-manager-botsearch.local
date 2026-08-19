@@ -1,0 +1,13 @@
+# Fail2ban jail for Nginx Proxy Manager - Bot Search
+# Uses the standard nginx-botsearch filter adapted for NPM format
+
+[nginx-proxy-manager-botsearch]
+enabled = false  # Disabled by default - enable if you want aggressive bot blocking
+filter = nginx-proxy-manager-botsearch
+logpath = {{NPM_DATA_DIR}}/logs/*_access.log
+         {{NPM_DATA_DIR}}/logs/fallback_access.log
+maxretry = 3
+findtime = 1h
+bantime = 1d
+port = http,https
+protocol = tcp

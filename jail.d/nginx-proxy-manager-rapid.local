@@ -1,0 +1,13 @@
+# Fail2ban jail for Nginx Proxy Manager - Rapid Access / Bot Scanner
+# Blocks IPs making too many requests in a short period (scanners/bots)
+
+[nginx-proxy-manager-rapid]
+enabled = true
+filter = nginx-proxy-manager-rapid
+logpath = {{NPM_DATA_DIR}}/logs/*_access.log
+         {{NPM_DATA_DIR}}/logs/fallback_access.log
+maxretry = 30
+findtime = 1m
+bantime = 2h
+port = http,https
+protocol = tcp

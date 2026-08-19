@@ -1,0 +1,13 @@
+# Fail2ban jail for Nginx Proxy Manager - Sensitive File Access
+# Blocks IPs attempting to access .env, WordPress files, and other sensitive paths
+
+[nginx-proxy-manager]
+enabled = true
+filter = nginx-proxy-manager
+logpath = {{NPM_DATA_DIR}}/logs/*_access.log
+         {{NPM_DATA_DIR}}/logs/fallback_access.log
+maxretry = 2
+findtime = 1h
+bantime = 1d
+port = http,https
+protocol = tcp
